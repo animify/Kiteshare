@@ -316,6 +316,10 @@ class Kiteshare {
 				if (copy) {
 					const clipboardImage = NativeImage.createFromPath(imagePath)
 					clipboard.writeImage(clipboardImage)
+					if (this.settings.get('audioNotifications')) {
+						this.workerWindow.webContents.send('audio-notify', 'fire')
+					}
+					this.notify('Cropped image copied to your clipboard')
 				} else {
 					this.upload(this.moveToTemp(imagePath), imagePath)
 				}

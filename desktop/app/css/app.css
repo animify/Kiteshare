@@ -2058,6 +2058,11 @@ p code {
 #home {
   text-align: center;
 }
+#home .container small {
+  display: block;
+  margin-top: 0.4rem;
+  color: #ffc82c;
+}
 hr {
   border-top: 1px solid #191c24;
   border-bottom: 0;
@@ -2072,13 +2077,18 @@ hr {
 input[type="checkbox"] {
   display: none;
 }
+.uploads {
+  margin-top: -1.4rem;
+}
 .upload {
-  height: 8rem;
+  height: 10rem;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   position: relative;
   display: block;
+  margin-top: 1.4rem;
+  border: 2px solid #191c24;
   *zoom: 1;
 }
 .upload:before,
@@ -2090,8 +2100,7 @@ input[type="checkbox"] {
   clear: both;
 }
 .upload:hover {
-  -webkit-box-shadow: inset 0 0 0 1px #f3116f;
-  box-shadow: inset 0 0 0 1px #f3116f;
+  border-color: #f3116f;
 }
 .upload .gradient {
   position: absolute;
@@ -2175,9 +2184,9 @@ input[type="checkbox"] {
   padding: 1rem 1.4rem;
   color: #898b92;
   display: block;
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   position: relative;
-  right: -1px;
+  right: -2px;
 }
 .options .nav li > a i {
   color: #6d6f76;
@@ -2191,7 +2200,7 @@ input[type="checkbox"] {
 }
 .options .nav li.active a {
   border-color: #191c24;
-  border-right: 1px solid #0d0f13;
+  border-right: 2px solid #0d0f13;
   color: #fff;
 }
 .options .nav li.active a i {
@@ -2202,17 +2211,20 @@ input[type="checkbox"] {
   height: 100%;
 }
 .options .panes {
-  border: 1px solid #191c24;
-  padding: 2.44rem 3.2rem;
+  border: 2px solid #191c24;
+  padding: 2rem 2.5rem;
   overflow-y: auto;
 }
 .pane {
   display: none;
+  position: relative;
+  width: 100%;
 }
 .pane h3 {
   color: #fff;
   font-weight: 600;
   padding: 1.4rem 0 0.5rem 0;
+  margin-top: 2rem;
 }
 .pane small {
   color: #898b92;
@@ -2249,25 +2261,46 @@ input[type="checkbox"] {
   clear: both;
 }
 .pane .shortcuts {
-  padding: 3rem 0;
+  padding: 2rem 2.4rem;
+  background-color: #111319;
+  border: 2px solid #191c24;
+  border-radius: 8px;
+  margin-top: 3rem;
+  display: inline-block;
 }
 .pane .shortcut {
-  margin-top: 1rem;
   display: block;
+}
+.pane .shortcut + .shortcut {
+  margin-top: 1.4rem;
+}
+.pane .shortcut > * {
+  display: inline-block;
+  vertical-align: top;
 }
 .pane .shortcut + .helper {
   margin-top: 2rem;
 }
 .pane .shortcut kbd {
-  color: #f3116f;
-  border: 1px solid #f3116f;
-  background-color: #250211;
+  color: #8b67d7;
+  background-color: #231346;
   font-weight: 800;
-  padding: 0.4rem 0.5rem;
+  padding: 0.3rem 0.4rem;
+  font-size: 0.86rem;
   text-transform: uppercase;
+  margin-left: 0.4rem;
+}
+h3 + p {
+  color: #898b92;
+}
+h4 + p {
+  color: #898b92;
+  margin-top: 0.4rem;
 }
 .title {
   font-size: 0.86rem;
+  display: inline-block;
+  vertical-align: top;
 }
 .title-bar {
   position: fixed;
@@ -2277,6 +2310,13 @@ input[type="checkbox"] {
   height: auto;
   text-align: center;
   padding: 0.9rem 0;
+}
+.title-bar img {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 0.3rem;
+  position: relative;
+  top: -1px;
 }
 .title-drag {
   width: calc(100% - 9rem);

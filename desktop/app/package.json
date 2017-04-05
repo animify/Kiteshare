@@ -1,11 +1,11 @@
 {
 	"name": "Kiteshare",
-	"description": "Kiteshare - Rapid, cross-platform screen sharing tool",
+	"description": "Kiteshare - A rapid, cross-platform screenshot sharing tool",
 	"author": {
-		"name": "Stefan Mansson",
-		"url": "http://mansson.io"
+		"name": "Cindr.io",
+		"url": "https://cindr.io"
 	},
-	"version": "0.0.2",
+	"version": "1.0.4",
 	"main": "js/main.js",
 	"dependencies": {
 		"async": "^2.0.1",

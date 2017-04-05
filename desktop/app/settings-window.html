@@ -27,6 +27,7 @@
 			<a class="ac-close"><i class="material-icons">close</i></a>
 		</div>
 		<div class="title-bar">
+			<img src="img/icon.png" height="14"/>
 			<div class="title">Kiteshare Alpha</div>
 			<div class="title-drag"></div>
 		</div>
@@ -54,157 +55,164 @@
 					</ul>
 				</div>
 				<div class="xs-9 panes nogutter">
-					<div class="tab-content">
-						<div class="pane active" id="home">
-							<div class="container">
-								<h3>Kiteshare</h4>
-								<small>v1.0.4 <i>Alpha</i></small>
+					<div class="pane active" id="home">
+						<div class="container">
+							<h3>Kiteshare</h3>
+							<p>Instantly share screenshots via clipboard or Imgur.</p>
+							<small>v1.0.4 <i>Alpha</i></small>
+							<div class="shortcuts">
 
-								<div class="shortcuts">
+								<div class="shortcut">
 									<p class="helper">Crop and copy a screenshot:</p>
-									<p class="shortcut" ng-switch="Platform">
-										<kbd ng-switch-when="darwin">command + shift +1</kbd>
+									<p ng-switch="Platform">
+										<kbd ng-switch-when="darwin">command + shift + 1</kbd>
 										<kbd ng-switch-when="win32">ctrl + shift + 1</kbd>
 									</p>
+								</div>
 
+								<div class="shortcut">
 									<p class="helper">Crop and upload a screenshot:</p>
-									<p class="shortcut" ng-switch="Platform">
+									<p ng-switch="Platform">
 										<kbd ng-switch-when="darwin">command + shift + 2</kbd>
 										<kbd ng-switch-when="win32">ctrl + shift + 2</kbd>
 									</p>
+								</div>
 
+								<div class="shortcut">
 									<p class="helper">Upload a full screenshot:</p>
-									<p class="shortcut" ng-switch="Platform">
+									<p ng-switch="Platform">
 										<kbd ng-switch-when="darwin">command + shift + 3</kbd>
 										<kbd ng-switch-when="win32">ctrl + shift + 3</kbd>
 									</p>
 								</div>
 							</div>
 						</div>
+					</div>
 
-						<div class="pane" id="settings">
-							<form class="h-form">
-								<h4>Preferences</h4>
-								<hr/>
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>Launch at startup:</p>
-										<small class="help-block">Launches Kiteshare at system startup</small>
-									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': autoLaunchSetting === true}">On</span>
-											<span class="opt off" ng-class="{'selected': autoLaunchSetting === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="autoLaunchSetting">
-									</div>
+					<div class="pane" id="settings">
+						<form class="h-form">
+							<h4>Preferences</h4>
+							<p>Manage all your Kiteshare settings</p>
+							<hr/>
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>Launch at startup:</p>
+									<small class="help-block">Launches Kiteshare at system startup</small>
 								</div>
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>Check for updates:</p>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': autoLaunchSetting === true}">On</span>
+										<span class="opt off" ng-class="{'selected': autoLaunchSetting === false}">Off</span>
 									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': settings.checkForUpdates === true}">On</span>
-											<span class="opt off" ng-class="{'selected': settings.checkForUpdates === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="settings.checkForUpdates">
-									</div>
+									<input type="checkbox" ng-model="autoLaunchSetting">
 								</div>
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>System alerts:</p>
-									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': settings.enableNotifications === true}">On</span>
-											<span class="opt off" ng-class="{'selected': settings.enableNotifications === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="settings.enableNotifications">
-									</div>
+							</div>
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>Check for updates:</p>
 								</div>
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>Sound notifications:</p>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': settings.checkForUpdates === true}">On</span>
+										<span class="opt off" ng-class="{'selected': settings.checkForUpdates === false}">Off</span>
 									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': settings.audioNotifications === true}">On</span>
-											<span class="opt off" ng-class="{'selected': settings.audioNotifications === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="settings.audioNotifications">
-									</div>
+									<input type="checkbox" ng-model="settings.checkForUpdates">
 								</div>
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>Open in browser:</p>
-										<small class="help-block">Opens upload link in default browser</small>
-									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': settings.openBrowser === true}">On</span>
-											<span class="opt off" ng-class="{'selected': settings.openBrowser === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="settings.openBrowser">
-									</div>
+							</div>
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>System alerts:</p>
 								</div>
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>Send file to trash:</p>
-										<small class="help-block">Destroy local screenshot after upload</small>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': settings.enableNotifications === true}">On</span>
+										<span class="opt off" ng-class="{'selected': settings.enableNotifications === false}">Off</span>
 									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': settings.sendToTrash === true}">On</span>
-											<span class="opt off" ng-class="{'selected': settings.sendToTrash === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="settings.sendToTrash">
-									</div>
+									<input type="checkbox" ng-model="settings.enableNotifications">
 								</div>
-								<div class="option-item" ng-if="Platform == 'darwin'">
-									<div class="xs-5 info">
-										<p>Downscale high-res screenshots:</p>
-										<small class="help-block">Reduce resolution from retina display shots</small>
-									</div>
-									<div class="xs-7 option">
-										<div class="toggle">
-											<span class="opt on" ng-class="{'selected': settings.retinaResize === true}">On</span>
-											<span class="opt off" ng-class="{'selected': settings.retinaResize === false}">Off</span>
-										</div>
-										<input type="checkbox" ng-model="settings.retinaResize">
-									</div>
+							</div>
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>Sound notifications:</p>
 								</div>
-								<!-- <div class="option-item" ng-show="settings.randomizeFilenames === true">
-									<span>Random Name Length</span>
-									<input type="number" class="form-control" ng-model="settings.randomizeFilenamesLength" placeholder="Length">
-								</div> -->
-								<div class="option-item">
-									<div class="xs-5 info">
-										<p>Reset settings:</p>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': settings.audioNotifications === true}">On</span>
+										<span class="opt off" ng-class="{'selected': settings.audioNotifications === false}">Off</span>
 									</div>
-									<div class="xs-7 option">
-										<a href class="text-red" ng-click="resetAll()">Reset</a>
-									</div>
+									<input type="checkbox" ng-model="settings.audioNotifications">
 								</div>
-							</form>
-						</div>
+							</div>
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>Open in browser:</p>
+									<small class="help-block">Opens upload link in default browser</small>
+								</div>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': settings.openBrowser === true}">On</span>
+										<span class="opt off" ng-class="{'selected': settings.openBrowser === false}">Off</span>
+									</div>
+									<input type="checkbox" ng-model="settings.openBrowser">
+								</div>
+							</div>
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>Send file to trash:</p>
+									<small class="help-block">Destroy local screenshot after upload</small>
+								</div>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': settings.sendToTrash === true}">On</span>
+										<span class="opt off" ng-class="{'selected': settings.sendToTrash === false}">Off</span>
+									</div>
+									<input type="checkbox" ng-model="settings.sendToTrash">
+								</div>
+							</div>
+							<div class="option-item" ng-if="Platform == 'darwin'">
+								<div class="xs-5 info">
+									<p>Downscale high-res screenshots:</p>
+									<small class="help-block">Reduce resolution from retina display shots</small>
+								</div>
+								<div class="xs-7 option">
+									<div class="toggle">
+										<span class="opt on" ng-class="{'selected': settings.retinaResize === true}">On</span>
+										<span class="opt off" ng-class="{'selected': settings.retinaResize === false}">Off</span>
+									</div>
+									<input type="checkbox" ng-model="settings.retinaResize">
+								</div>
+							</div>
+							<!-- <div class="option-item" ng-show="settings.randomizeFilenames === true">
+								<span>Random Name Length</span>
+								<input type="number" class="form-control" ng-model="settings.randomizeFilenamesLength" placeholder="Length">
+							</div> -->
+							<div class="option-item">
+								<div class="xs-5 info">
+									<p>Reset settings:</p>
+								</div>
+								<div class="xs-7 option">
+									<a href class="text-red" ng-click="resetAll()">Reset</a>
+								</div>
+							</div>
+						</form>
+					</div>
 
-						<!-- uploads -->
-						<div class="pane" id="uploads">
-							<form class="h-form">
-								<h4>Recent uploads</h4>
-								<hr/>
-								<div class="option-item" >
-									<div class="xs-4 nogutter" ng-repeat="URL in recent">
-										<a class="href-link upload" href={{URL}}  style="background-image:url({{URL}})">
-											<span class="gradient">
-												<b>{{ URL.substring(URL.lastIndexOf('/')+1) }}</b>
-											</span>
-										</a>
-									</div>
+					<!-- uploads -->
+					<div class="pane" id="uploads">
+						<form class="h-form">
+							<h4>Recent uploads</h4>
+							<p>All your recent Imgur uploads in one place</p>
+							<hr/>
+							<div class="option-item uploads">
+								<div class="xs-6" ng-repeat="URL in recent">
+									<a class="href-link upload" href={{URL}}  style="background-image:url({{URL}})">
+										<span class="gradient">
+											<b>{{ URL.substring(URL.lastIndexOf('/')+1) }}</b>
+										</span>
+									</a>
 								</div>
-							</form>
-						</div>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>

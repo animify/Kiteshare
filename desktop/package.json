@@ -23,7 +23,7 @@
 	"build": {
 		"category": "public.app-category.productivity",
 		"win": {
-			"iconUrl": "https://github.com/Aotik/Kiteshare/blob/master/desktop/build/icon.ico?raw=true"
+			"iconUrl": "http://cindr.io/assets/images/icon.ico"
 		}
 	},
 	"dependencies": {
