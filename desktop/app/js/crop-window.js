@@ -10,25 +10,21 @@ const Jimp = require('jimp')
 $(() => {
 	cropWindow.on('blur', () => cropWindow.destroy())
 
-	// temp files
 	const imagePath = decodeURIComponent(window.location.href.split('?image_path=')[1])
 
-	// load the img preview
 	$('.img').attr('src', imagePath)
 
-	y = 100
-	x2 = 300
-	y2 = 200
-	x = 30
-
+	$('.img').css({
+		'position' : 'fixed',
+		'top' : 0,
+		'left' : 0
+	})
 
 	$('.img').load(() => {
 		cropWindow.show()
 		cropWindow.focus()
 	})
-	$(".img").css('clip-path', 'inset('+y+'px '+x2+'px '+y2+'px '+x+'px)');
 
-	// close on esc key
 	$(document).keyup(e => e.keyCode == 27 && cropWindow.destroy())
 
 	let dragging = false
@@ -37,8 +33,8 @@ $(() => {
 	let dragSize = {x: 0, y: 0}
 	let dragEnd = {x: 0, y: 0}
 	let scale = {x: 1, y: 1}
+	let clip = {x: 0, x2: 0, y: 0, y2: 0}
 
-	// update mouse location
 	$(window).on('mousemove', e => {
 		mouseLoc.x = e.clientX
 		mouseLoc.y = e.clientY
@@ -60,32 +56,31 @@ $(() => {
 		if (dragging) {
 			dragSize.x = Math.abs(mouseLoc.x - dragStart.x) + 1
 			dragSize.y = Math.abs(mouseLoc.y - dragStart.y) + 1
+			clip.y2 = mouseLoc.y
+			clip.x2 = mouseLoc.x
 
 			if (mouseLoc.y < dragStart.y) {
-				$('#selection').css('top', mouseLoc.y)
-				y = mouseLoc.y
+				clip.y = mouseLoc.y
+				clip.y2 = mouseLoc.y + dragSize.y
 			}
+
 			if (mouseLoc.x < dragStart.x) {
-				$('#selection').css('left', mouseLoc.x)
+				clip.x = mouseLoc.x
+				clip.x2 = mouseLoc.x + dragSize.x
 			}
 
-			$('#selection').css({
-				height: dragSize.y,
-				width: dragSize.x
-			})
-
-
-
-			$('#cords').html(Math.round(dragSize.x * scale.x) + '<br />' + Math.round(dragSize.y * scale.y))
-		} else {
-			$('#cords').html(Math.round(mouseLoc.x * scale.x) + '<br />' + Math.round(mouseLoc.y * scale.y))
+			$(".overlayer").css('clip', `rect(${clip.y}px,${clip.x2}px,${clip.y2}px,${clip.x}px)`)
 		}
+
+		$('#cords').html(Math.round(mouseLoc.x * scale.x) + '<br />' + Math.round(mouseLoc.y * scale.y))
 	})
 
 	// start cropping
 	$(window).on('mousedown', e => {
 		dragging = true
 
+		clip.x = mouseLoc.x
+		clip.y = mouseLoc.y
 		dragStart.x = mouseLoc.x
 		dragStart.y = mouseLoc.y
 		dragSize.x = 0
@@ -93,13 +88,9 @@ $(() => {
 		dragEnd.x = 0
 		dragEnd.y = 0
 
-		$('#selection').css({
-			'top': mouseLoc.y,
-			'left': mouseLoc.x,
-			'height': 0,
-			'width': 0
-		})
-		$('#selection').show()
+		$(".overlayer").css('clip', `rect(${clip.y}px,${clip.x}px,${clip.y}px,${clip.x}px)`)
+
+		$('.overlayer').show()
 	})
 
 	// stop cropping
@@ -113,11 +104,7 @@ $(() => {
 		dragSize.x = Math.abs(mouseLoc.x - dragStart.x) + 1
 		dragSize.y = Math.abs(mouseLoc.y - dragStart.y) + 1
 
-		$('#selection').hide()
-		$('#selection').css({
-			'height': 0,
-			'width': 0
-		})
+		$('.overlayer').hide()
 
 		// dont upload if the crop is 0
 		if (dragSize.x <= 1 && dragSize.y <= 1) {

@@ -18,11 +18,11 @@ body {
 	position: fixed;
 	top: 0px;
 	left: 0px;
-	margin-left: 12px;
-	font: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-	font-size: 14px;
-	text-shadow: 1px 0px 0px rgba(180,180,180,0.4);
+	margin-left: 13px;
+	font-family: 'Source Code Pro', monospace;
+	font-size: 13px;
 	z-index: 150;
+	font-weight: 700;
 }
 
 #overlay {
@@ -35,6 +35,15 @@ body {
 	background-color: rgba(56, 193, 255, 0.43);
 }
 
+.overlayer {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 100%;
+	z-index: 100;
+	display: none;
+}
+
 #selection {
 	position: fixed;
 	background: rgba(49, 56, 63,0.45);
@@ -43,11 +52,11 @@ body {
 	z-index: 80;
 }
 
-#img {
+.img {
 	position: fixed;
 	top: 0px;
 	left: 0px;
 	height: 100%;
-	z-index: 0;
 	user-select: none;
+	pointer-events: none;
 }
