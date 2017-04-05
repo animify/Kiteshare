@@ -1,0 +1,171 @@
+#home
+	text-align center
+
+hr
+	border-top 1px solid background-dark-border
+	border-bottom 0
+	border-right 0
+	border-left 0
+	margin 1.4rem 0 1rem
+	outline 0
+	background-color transparent
+	box-shadow none
+
+input[type="checkbox"]
+	display none
+
+.upload
+	height 8rem
+	background-size cover
+	position relative
+	display block
+	cf()
+	&:hover
+		box-shadow inset 0 0 0 1px color-pink
+	.gradient
+		absolute bottom left
+		width 100%
+		height 50%
+		background linear-gradient(0deg,#14151d,transparent)
+		b
+			color #fff
+			absolute bottom .7rem left 1rem
+
+.toggle
+	span
+		padding-right .8rem
+		color text-light
+		position relative
+		cursor pointer
+		&:hover
+			color text-help
+		&:after
+			width 100%
+			absolute bottom -4px left
+			background-color transparent
+			height 1px
+			content ' '
+			display block
+		& + span
+			padding-left .8rem
+			padding-right 0
+			border-left 1px solid background-dark-border
+		&.selected
+			color #fff
+			font-weight 800
+			text-decoration underline
+
+.options
+	padding 3.5rem 3rem 1.8rem 3rem
+	height 100%
+	.nav
+		position relative
+		height 100%
+		cf()
+		li
+			&.version
+				text-align center
+				width 100%
+				display block
+				absolute bottom
+				small
+					display block
+					color darken(text-help, 40%)
+					&.dev
+						color darken(text-help, 70%)
+			& > a
+				padding 1rem 1.4rem
+				color text-light
+				display block
+				border 1px solid transparent
+				relative right -1px
+				i
+					color text-light-icon
+					font-size .8rem
+					margin-right .6rem
+					relative top 1px
+			&:hover
+				a
+					color #fff
+			&.active
+				a
+					border-color background-dark-border
+					border-right 1px solid background-dark
+					color #fff
+					i
+						color #fff
+	.panes, .grid-row
+		height 100%
+	.panes
+		border 1px solid background-dark-border
+		padding 2.44rem 3.2rem
+		overflow-y auto
+
+.pane
+	display none
+	h3
+		color #fff
+		font-weight 600
+		padding 1.4rem 0 .5rem 0
+	small
+		color text-light
+	&.active
+		display block
+	.info, .option
+		padding 0
+	.option
+		padding-left 2rem
+	.helper, .info p
+		color text-help
+	.help-block
+		color text-light
+	.option-item
+		display block
+		width 100%
+		padding .5rem 0
+		cf()
+	.shortcuts
+		padding 3rem 0
+	.shortcut
+		margin-top 1rem
+		display block
+		& + .helper
+			margin-top 2rem
+		kbd
+			color color-pink
+			border 1px solid color-pink
+			background-color darken(color-pink, 85%)
+			font-weight 800
+			padding .4rem .5rem
+			text-transform uppercase
+
+.title
+	font-size .86rem
+	&-bar
+		fixed top left
+		width 100%
+		height auto
+		text-align center
+		padding .9rem 0
+	&-drag
+		width calc(100% - 9rem)
+		padding 1.3rem 0
+		absolute top left
+		content ' '
+		display block
+		-webkit-app-region drag
+	&-options
+		absolute top right .4rem
+		padding .74rem 0
+		z-index 9000
+		a
+			display inline-block
+			vertical-align top
+			&:hover
+				i
+					color #fff
+					cursor pointer
+		i
+			color text-light
+			padding 0 .7rem
+			font-size 1rem
