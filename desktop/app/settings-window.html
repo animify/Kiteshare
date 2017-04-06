@@ -34,7 +34,7 @@
 
 		<div class="options">
 			<div class="grid-row">
-				<div class="xs-3 nav nogutter">
+				<div class="xs-2 nav nogutter">
 					<ul class="nav-tabs">
 						<li class="active"><a href="#home" data-toggle="tab">
 							<i class="material-icons">help_outline</i>
@@ -49,19 +49,18 @@
 							Uploads
 						</a></li>
 						<li class="version">
-							<small>Kiteshare v1.0.4</small>
-							<small class="dev">Developed by Cindr.io</small>
+							<small>Kiteshare<br/><span>v1.0.4</span></small>
 						</li>
 					</ul>
 				</div>
-				<div class="xs-9 panes nogutter">
+				<div class="xs-10 panes nogutter">
 					<div class="pane active" id="home">
 						<div class="container">
 							<h3>Kiteshare</h3>
 							<p>Instantly share screenshots via clipboard or Imgur.</p>
 							<small>v1.0.4 <i>Alpha</i></small>
-							<div class="shortcuts">
 
+							<div class="shortcuts">
 								<div class="shortcut">
 									<p class="helper">Crop and copy a screenshot:</p>
 									<p ng-switch="Platform">
@@ -92,7 +91,7 @@
 
 					<div class="pane" id="settings">
 						<form class="h-form">
-							<h4>Preferences</h4>
+							<h5>Preferences</h5>
 							<p>Manage all your Kiteshare settings</p>
 							<hr/>
 							<div class="option-item">
@@ -202,15 +201,14 @@
 						</form>
 					</div>
 
-					<!-- uploads -->
 					<div class="pane" id="uploads">
 						<form class="h-form">
-							<h4>Recent uploads</h4>
+							<h5>Recent uploads</h5>
 							<p>All your recent Imgur uploads in one place</p>
 							<hr/>
 							<div class="option-item uploads">
 								<div class="grid-row">
-									<div class="xs-6" ng-repeat="URL in recent">
+									<div class="xs-12" ng-repeat="URL in recent">
 										<a class="href-link upload" href={{URL}}  style="background-image:url({{URL}})">
 											<span class="gradient">
 												<b>{{ URL.substring(URL.lastIndexOf('/')+1) }}</b>

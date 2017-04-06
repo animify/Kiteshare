@@ -289,7 +289,6 @@ class Kiteshare {
 			const minY = allScreens.reduce((pv, cv) => pv < cv.bounds.y ? pv : cv.bounds.y, 0)
 			const maxWidth = allScreens.reduce((pv, cv) => pv <= cv.bounds.maxX ? cv.bounds.maxX : pv, 0) + Math.abs(minX)
 			const maxHeight = allScreens.reduce((pv, cv) => pv <= cv.bounds.maxY ? cv.bounds.maxY : pv, 0) + Math.abs(minY)
-
 			this.cropWindow = new BrowserWindow({
 				show: false,
 				frame: false,
@@ -445,7 +444,7 @@ class Kiteshare {
 
 	copyToClipboard(url) {
 		clipboard.writeText(url)
-		this.notify('The screenshot URL has been copied to your clipboard', url)
+		this.notify('Screenshot link has been copied to your clipboard', url)
 	}
 }
 
