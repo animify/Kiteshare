@@ -2228,6 +2228,21 @@ input[type="checkbox"] {
   background-color: #fafbfc;
   border-radius: 6px;
 }
+.none {
+  text-align: center;
+  margin-top: 2rem;
+}
+.none p {
+  font-size: 1.1rem;
+  padding: 0.8rem 0;
+}
+.none p i {
+  color: #5d2cb8;
+  font-size: 1.3rem;
+  position: relative;
+  top: 4px;
+  margin-right: 0.4rem;
+}
 .pane {
   display: none;
   position: relative;
