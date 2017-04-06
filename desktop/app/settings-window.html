@@ -27,7 +27,7 @@
 			<a class="ac-close"><i class="material-icons">close</i></a>
 		</div>
 		<div class="title-bar">
-			<img src="img/icon.png" height="14"/>
+			<img src="img/icon.png" height="17"/>
 			<div class="title">Kiteshare Alpha</div>
 			<div class="title-drag"></div>
 		</div>
@@ -45,12 +45,12 @@
 							Preferences
 						</a></li>
 						<li><a href="#uploads" data-toggle="tab">
-							<i class="material-icons">file_upload</i>
+							<i class="material-icons">featured_play_list</i>
 							Uploads
 						</a></li>
 						<li class="version">
 							<small>Kiteshare v1.0.4</small>
-							<small class="dev">Developed by cindr.io</small>
+							<small class="dev">Developed by Cindr.io</small>
 						</li>
 					</ul>
 				</div>
@@ -65,27 +65,28 @@
 								<div class="shortcut">
 									<p class="helper">Crop and copy a screenshot:</p>
 									<p ng-switch="Platform">
-										<kbd ng-switch-when="darwin">command + shift + 1</kbd>
-										<kbd ng-switch-when="win32">ctrl + shift + 1</kbd>
+										<kbd ng-switch-when="darwin">Command + Shift + 1</kbd>
+										<kbd ng-switch-when="win32">Ctrl + Shift + 1</kbd>
 									</p>
 								</div>
 
 								<div class="shortcut">
 									<p class="helper">Crop and upload a screenshot:</p>
 									<p ng-switch="Platform">
-										<kbd ng-switch-when="darwin">command + shift + 2</kbd>
-										<kbd ng-switch-when="win32">ctrl + shift + 2</kbd>
+										<kbd ng-switch-when="darwin">Command + Shift + 2</kbd>
+										<kbd ng-switch-when="win32">Ctrl + Shift + 2</kbd>
 									</p>
 								</div>
 
 								<div class="shortcut">
 									<p class="helper">Upload a full screenshot:</p>
 									<p ng-switch="Platform">
-										<kbd ng-switch-when="darwin">command + shift + 3</kbd>
-										<kbd ng-switch-when="win32">ctrl + shift + 3</kbd>
+										<kbd ng-switch-when="darwin">Command + Shift + 3</kbd>
+										<kbd ng-switch-when="win32">Ctrl + Shift + 3</kbd>
 									</p>
 								</div>
 							</div>
+							<small class="support">For support visit <a href="https://cindr.io">Cindr.io</a></small>
 						</div>
 					</div>
 
@@ -95,11 +96,11 @@
 							<p>Manage all your Kiteshare settings</p>
 							<hr/>
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Launch at startup:</p>
 									<small class="help-block">Launches Kiteshare at system startup</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': autoLaunchSetting === true}">On</span>
 										<span class="opt off" ng-class="{'selected': autoLaunchSetting === false}">Off</span>
@@ -108,10 +109,11 @@
 								</div>
 							</div>
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Check for updates:</p>
+									<small class="help-block">Check for updates on application run</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': settings.checkForUpdates === true}">On</span>
 										<span class="opt off" ng-class="{'selected': settings.checkForUpdates === false}">Off</span>
@@ -120,10 +122,11 @@
 								</div>
 							</div>
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>System alerts:</p>
+									<small class="help-block">Enable or disable system alerts for screenshots</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': settings.enableNotifications === true}">On</span>
 										<span class="opt off" ng-class="{'selected': settings.enableNotifications === false}">Off</span>
@@ -132,10 +135,11 @@
 								</div>
 							</div>
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Sound notifications:</p>
+									<small class="help-block">Enable or disable sound alerts for screenshots</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': settings.audioNotifications === true}">On</span>
 										<span class="opt off" ng-class="{'selected': settings.audioNotifications === false}">Off</span>
@@ -144,11 +148,11 @@
 								</div>
 							</div>
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Open in browser:</p>
 									<small class="help-block">Opens upload link in default browser</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': settings.openBrowser === true}">On</span>
 										<span class="opt off" ng-class="{'selected': settings.openBrowser === false}">Off</span>
@@ -157,11 +161,11 @@
 								</div>
 							</div>
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Send file to trash:</p>
-									<small class="help-block">Destroy local screenshot after upload</small>
+									<small class="help-block">Delete local screenshot after upload</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': settings.sendToTrash === true}">On</span>
 										<span class="opt off" ng-class="{'selected': settings.sendToTrash === false}">Off</span>
@@ -170,11 +174,11 @@
 								</div>
 							</div>
 							<div class="option-item" ng-if="Platform == 'darwin'">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Downscale high-res screenshots:</p>
 									<small class="help-block">Reduce resolution from retina display shots</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<div class="toggle">
 										<span class="opt on" ng-class="{'selected': settings.retinaResize === true}">On</span>
 										<span class="opt off" ng-class="{'selected': settings.retinaResize === false}">Off</span>
@@ -187,10 +191,11 @@
 								<input type="number" class="form-control" ng-model="settings.randomizeFilenamesLength" placeholder="Length">
 							</div> -->
 							<div class="option-item">
-								<div class="xs-5 info">
+								<div class="xs-7 info">
 									<p>Reset settings:</p>
+									<small class="help-block">Resetting your settings will result in setting defaults. Kiteshare will need to be restarted.</small>
 								</div>
-								<div class="xs-7 option">
+								<div class="xs-5 option">
 									<a href class="text-red" ng-click="resetAll()">Reset</a>
 								</div>
 							</div>
@@ -204,12 +209,15 @@
 							<p>All your recent Imgur uploads in one place</p>
 							<hr/>
 							<div class="option-item uploads">
-								<div class="xs-6" ng-repeat="URL in recent">
-									<a class="href-link upload" href={{URL}}  style="background-image:url({{URL}})">
-										<span class="gradient">
-											<b>{{ URL.substring(URL.lastIndexOf('/')+1) }}</b>
-										</span>
-									</a>
+								<div class="grid-row">
+									<div class="xs-6" ng-repeat="URL in recent">
+										<a class="href-link upload" href={{URL}}  style="background-image:url({{URL}})">
+											<span class="gradient">
+												<b>{{ URL.substring(URL.lastIndexOf('/')+1) }}</b>
+											</span>
+										</a>
+									</div>
+									<p ng-show="!recent.length">No uploads yet</p>
 								</div>
 							</div>
 						</form>

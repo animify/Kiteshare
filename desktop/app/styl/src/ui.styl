@@ -5,13 +5,14 @@ html
 body
 	font-family font-family-standard
 	font-size font-size-standard
-	color #fff
+	color text-dark
 	height 100%
 	width 100%
 	margin 0
 	padding 0
-	background-color background-dark
+	background-color #fff
 	user-select none
+	border 3px solid background-dark-border
 
 for h in (1..6)
 	h{h}
@@ -42,4 +43,4 @@ strong
 
 ::-webkit-scrollbar-thumb:window-inactive,
 ::-webkit-scrollbar-thumb
-	background-color lighten(background-dark, 4%)
+	background-color lighten(background-dark-border, 4%)

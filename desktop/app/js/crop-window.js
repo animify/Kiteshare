@@ -54,35 +54,35 @@ $(() => {
 		})
 
 		if (dragging) {
-			dragSize.x = Math.abs(mouseLoc.x - dragStart.x) + 1
-			dragSize.y = Math.abs(mouseLoc.y - dragStart.y) + 1
-			clip.y2 = mouseLoc.y
-			clip.x2 = mouseLoc.x
+			dragSize.x = Math.abs(mouseLoc.x - dragStart.x)
+			dragSize.y = Math.abs(mouseLoc.y - dragStart.y)
+			clip.y2 = mouseLoc.y + 2
+			clip.x2 = mouseLoc.x + 2
 
 			if (mouseLoc.y < dragStart.y) {
-				clip.y = mouseLoc.y
-				clip.y2 = mouseLoc.y + dragSize.y
+				clip.y = mouseLoc.y + 2
+				clip.y2 = mouseLoc.y + dragSize.y + 2
 			}
 
 			if (mouseLoc.x < dragStart.x) {
-				clip.x = mouseLoc.x
-				clip.x2 = mouseLoc.x + dragSize.x
+				clip.x = mouseLoc.x + 2
+				clip.x2 = mouseLoc.x + dragSize.x + 2
 			}
 
 			$(".overlayer").css('clip', `rect(${clip.y}px,${clip.x2}px,${clip.y2}px,${clip.x}px)`)
 		}
 
-		$('#cords').html(Math.round(mouseLoc.x * scale.x) + '<br />' + Math.round(mouseLoc.y * scale.y))
+		$('#cords span.x').text(Math.round(mouseLoc.x * scale.x))
+		$('#cords span.y').text(Math.round(mouseLoc.y * scale.y))
 	})
 
-	// start cropping
 	$(window).on('mousedown', e => {
 		dragging = true
 
 		clip.x = mouseLoc.x
 		clip.y = mouseLoc.y
-		dragStart.x = mouseLoc.x
-		dragStart.y = mouseLoc.y
+		dragStart.x = mouseLoc.x + 1
+		dragStart.y = mouseLoc.y + 1
 		dragSize.x = 0
 		dragSize.y = 0
 		dragEnd.x = 0
@@ -93,20 +93,18 @@ $(() => {
 		$('.overlayer').show()
 	})
 
-	// stop cropping
 	$(window).on('mouseup', e => {
 		if (!dragging) return
 		dragging = false
 
-		dragEnd.x = mouseLoc.x + 1
-		dragEnd.y = mouseLoc.y + 1
+		dragEnd.x = mouseLoc.x
+		dragEnd.y = mouseLoc.y
 
-		dragSize.x = Math.abs(mouseLoc.x - dragStart.x) + 1
-		dragSize.y = Math.abs(mouseLoc.y - dragStart.y) + 1
+		dragSize.x = Math.abs(mouseLoc.x - dragStart.x)
+		dragSize.y = Math.abs(mouseLoc.y - dragStart.y)
 
 		$('.overlayer').hide()
 
-		// dont upload if the crop is 0
 		if (dragSize.x <= 1 && dragSize.y <= 1) {
 			cropWindow.destroy()
 		} else {

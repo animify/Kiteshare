@@ -22,7 +22,6 @@ const clipboard = electron.clipboard
 const shell = electron.shell
 const ipc = electron.ipcMain
 const dialog = electron.dialog
-// const client = require('electron-connect').client
 
 const Settings = require('./settings')
 const Services = require('./services')
@@ -91,7 +90,7 @@ class Kiteshare {
 		if (!this.settings.get('checkForUpdates')) return
 
 		request.get({
-			url: 'https://pussh.me/dl/kiteshare.json',
+			url: 'http://kiteshare.io/dl/kiteshare.json',
 			timeout: 10000,
 			json: true
 		}, (error, response, body) => {
@@ -100,7 +99,7 @@ class Kiteshare {
 			if (this.version !== data.version) {
 				const msg = 'Kiteshare has an update available. Click "OK" to open the Kiteshare download page.'
 				if (!confirm(msg)) return
-				this.openInBrowser('https://pussh.me/')
+				this.openInBrowser('http://kiteshare.io/')
 			}
 		})
 	}
@@ -114,15 +113,14 @@ class Kiteshare {
 		this.settingsWindow = new BrowserWindow({
 			frame: false,
 			show: false,
-			width: 900,
-			height: 600,
-			minWidth: 900,
-			minHeight: 580,
+			width: 930,
+			height: 625,
+			minWidth: 930,
+			minHeight: 625,
 			skipTaskbar: true,
 			autoHideMenuBar: true
 		})
 
-		// client.create(this.settingsWindow)
 		this.settingsWindow.setMenu(null)
 		this.settingsWindow.loadURL(`file://${path.join(app.getAppPath(), 'settings-window.html')}`)
 		this.settingsWindow.on('closed', () => this.settingsWindow = null)
@@ -211,7 +209,7 @@ class Kiteshare {
 		}))
 
 		menu.append(new MenuItem({
-			label: 'Exit '+this.name,
+			label: 'Quit '+this.name,
 			click: () => app.quit()
 		}))
 
@@ -244,8 +242,6 @@ class Kiteshare {
 
 								execFile('/usr/bin/mdls', ['--raw', '--name', 'kMDItemIsScreenCapture', filePath], (error, stdout) => {
 									if (error || !parseInt(stdout)) return callback()
-
-									console.log('Uploading %s', filePath)
 
 									this.upload(this.moveToTemp(filePath), filePath)
 
