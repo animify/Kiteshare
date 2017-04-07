@@ -100,7 +100,7 @@ html {
   width: 100%;
 }
 body {
-  font-family: 'Muli', 'Open Sans', sans-serif;
+  font: caption;
   font-size: 13px;
   color: #fff;
   height: 100%;
@@ -159,10 +159,12 @@ strong {
 ::-webkit-scrollbar {
   background-color: #262a34;
   width: 6px;
+  border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:window-inactive,
 ::-webkit-scrollbar-thumb {
   background-color: #323844;
+  border-radius: 8px;
 }
 .xs-1,
 .xs-2,
@@ -2057,16 +2059,16 @@ p code {
   background-color: rgba(0,0,0,0.06);
 }
 h3 {
-  font-weight: 900;
-  letter-spacing: -1px;
+  font-weight: 800;
+  letter-spacing: -0.6px;
 }
 h3 + p {
   color: #999da8;
   font-size: 1rem;
 }
 h5 {
-  letter-spacing: -1.2px;
-  font-weight: 700;
+  letter-spacing: -0.4px;
+  font-weight: 600;
 }
 h5 + p {
   color: #999da8;
@@ -2212,14 +2214,14 @@ input[type="checkbox"] {
   position: relative;
   right: -2px;
   z-index: 300;
-  font-weight: 700;
+  font-weight: 600;
   position: relative;
 }
 .options .nav li > a i {
   color: #adb1b9;
   font-size: 1.2rem;
   position: absolute;
-  top: 1.04rem;
+  top: 1.05rem;
   left: 1.04rem;
 }
 .options .nav li:hover a {
@@ -2245,6 +2247,7 @@ input[type="checkbox"] {
   overflow-y: auto;
   background-color: #272b36;
   border-radius: 8px;
+  overflow-x: hidden;
 }
 .none {
   text-align: center;
@@ -2362,10 +2365,11 @@ input[type="checkbox"] {
 }
 .pane .shortcut kbd {
   color: #d9d034;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1rem;
   margin-left: 0.4rem;
-  letter-spacing: -0.4px;
+  margin-top: 0.4rem;
+  letter-spacing: -0.3px;
 }
 .title {
   font-size: 0.86rem;
@@ -2401,7 +2405,7 @@ input[type="checkbox"] {
 }
 .title-options {
   position: absolute;
-  top: 0;
+  top: 3px;
   right: 0.4rem;
   padding: 0.74rem 0;
   z-index: 9000;

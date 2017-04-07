@@ -29,19 +29,10 @@ app.run($rootScope => {
 app.controller('settings', ($scope, $rootScope) => {
 		const Kiteshare = $rootScope.Kiteshare
 
-		$scope.services = Kiteshare.services.list().map(s => {
-			return {
-				name: s.name,
-				_name: s._name,
-				description: s.description,
-				settings: s.settings
-			}
-		})
-
 		$scope.recent = Kiteshare.recent
+		$scope.version = "v" + Kiteshare.version
+		$scope.appState = Kiteshare.appState
 		$scope.settings = Kiteshare.settings.get()
-		$scope.selectedService = Kiteshare.services.get($scope.settings.selectedService) || Kiteshare.services.list()[0]
-		// $scope.serviceSettings = $scope.selectedService.getSettings()
 		$scope.autoLaunchSetting = false
 
 		Kiteshare.settings.getAutoLaunch(state => {
@@ -53,15 +44,7 @@ app.controller('settings', ($scope, $rootScope) => {
 
 		$scope.resetAll = () => Kiteshare.settings.resetAll()
 
-		$scope.$watch('selectedService', service => {
-			$scope.settings.selectedService = service._name
-			// $scope.serviceSettings = $scope.selectedService.settings
-
-			$scope.save()
-		})
-
 		$scope.$watch('settings', () => $scope.save(), true)
-		$scope.$watch('serviceSettings', () => $scope.save(), true)
 
 		$('.on').bind("click", function() {
 			const checkBox = $(this).parent().next("input[type='checkbox']")
@@ -76,7 +59,6 @@ app.controller('settings', ($scope, $rootScope) => {
 		})
 
 		$scope.save = debounce(() => {
-			Kiteshare.services.get($scope.selectedService._name).saveSettings()
 			Kiteshare.settings.save()
 		}, 1000, {
 			leading: true,

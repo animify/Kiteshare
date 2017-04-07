@@ -43,7 +43,9 @@ class Kiteshare {
 		this.platform = os.platform()
 		this.name = app.getName()
 		this.version = app.getVersion()
+		this.appState = "Beta"
 		this.recent = []
+		this.darwinStateCopy = false
 
 		this.settingsWindow = null
 		this.workerWindow = null
@@ -113,9 +115,9 @@ class Kiteshare {
 		this.settingsWindow = new BrowserWindow({
 			frame: false,
 			show: false,
-			width: 930,
+			width: 950,
 			height: 625,
-			minWidth: 930,
+			minWidth: 950,
 			minHeight: 625,
 			skipTaskbar: true,
 			autoHideMenuBar: true
@@ -157,28 +159,33 @@ class Kiteshare {
 			}))
 		}
 
-		if (this.platform == "win32") {
-			menu.append(new MenuItem({
-				label: 'Crop and Copy',
-				click: () => {
-					this.windowsCapture(true, true)
+		menu.append(new MenuItem({
+			label: 'Crop and copy',
+			click: () => {
+				switch (this.platform) {
+					case "darwin":
+						this.macCapture(true, true)
+						break
+					case "win32":
+						this.windowsCapture(true, true)
+						break
 				}
-			}))
+			}
+		}))
 
-			menu.append(new MenuItem({
-				label: 'Crop and Upload',
-				click: () => {
-					this.windowsCapture(true, false)
+		menu.append(new MenuItem({
+			label: 'Crop and upload',
+			click: () => {
+				switch (this.platform) {
+					case "darwin":
+						this.macCapture(true, false)
+						break
+					case "win32":
+						this.windowsCapture(true, false)
+						break
 				}
-			}))
-		} else if (this.platform == "darwin") {
-			menu.append(new MenuItem({
-				label: 'Cropped screenshot',
-				click: () => {
-					this.macCapture(true, false)
-				}
-			}))
-		}
+			}
+		}))
 
 		menu.append(new MenuItem({
 			label: 'Upload full screen capture',
@@ -238,7 +245,13 @@ class Kiteshare {
 								execFile('/usr/bin/mdls', ['--raw', '--name', 'kMDItemIsScreenCapture', filePath], (error, stdout) => {
 									if (error || !parseInt(stdout)) return callback()
 
-									this.upload(this.moveToTemp(filePath), filePath)
+									if (!this.darwinStateCopy) {
+										this.upload(this.moveToTemp(filePath), filePath)
+									} else {
+										this.copyImageToClipboard(filePath)
+									}
+
+									this.darwinStateCopy = false
 
 									checkedFiles.push(file)
 									callback()
@@ -264,10 +277,12 @@ class Kiteshare {
 	macCapture(crop=false, copy=false) {
 		if (this.platform !== 'darwin') return
 
+		(copy) ? this.darwinStateCopy = true : this.darwinStateCopy = false
+
 		if (crop) {
-			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "#" using {command down, shift down}'])
-		} else {
 			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "$" using {command down, shift down}'])
+		} else {
+			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "#" using {command down, shift down}'])
 		}
 
 	}
@@ -316,12 +331,7 @@ class Kiteshare {
 				this.cropWindow = null
 
 				if (copy) {
-					const clipboardImage = NativeImage.createFromPath(imagePath)
-					clipboard.writeImage(clipboardImage)
-					if (this.settings.get('audioNotifications')) {
-						this.workerWindow.webContents.send('audio-notify', 'fire')
-					}
-					this.notify('Cropped image copied to your clipboard')
+					this.copyImageToClipboard(imagePath)
 				} else {
 					this.upload(this.moveToTemp(imagePath), imagePath)
 				}
@@ -453,6 +463,14 @@ class Kiteshare {
 		clipboard.writeText(url)
 		this.notify('Screenshot link has been copied to your clipboard', url)
 	}
+
+	copyImageToClipboard(filePath) {
+		const clipboardImage = NativeImage.createFromPath(filePath)
+		clipboard.writeImage(clipboardImage)
+		if (this.settings.get('audioNotifications'))
+			this.workerWindow.webContents.send('audio-notify', 'fire')
+		this.notify('Screenshot content copied to your clipboard')
+	}
 }
 
-app.on('ready', () => global.Kiteshare = new Kiteshare());
+app.on('ready', () => global.Kiteshare = new Kiteshare())

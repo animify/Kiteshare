@@ -28,7 +28,7 @@
 		</div>
 		<div class="title-bar">
 			<img src="img/icon.png" height="17"/>
-			<div class="title">Kiteshare Alpha</div>
+			<div class="title">Kiteshare <span ng-bind="appState"></span></div>
 			<div class="title-drag"></div>
 		</div>
 
@@ -49,7 +49,7 @@
 							Uploads
 						</a></li>
 						<li class="version">
-							<small>Kiteshare<br/><span>v1.0.4</span></small>
+							<small>Kiteshare<br/><span ng-bind="version"></span></small>
 						</li>
 					</ul>
 				</div>
@@ -58,13 +58,13 @@
 						<div class="container">
 							<h3>Kiteshare</h3>
 							<p>Instantly share screenshots via clipboard or Imgur.</p>
-							<small>v1.0.4 <i>Alpha</i></small>
+							<small ng-bind="version"></small>
 
 							<div class="shortcuts">
 								<div class="shortcut">
 									<p class="helper">Crop and copy a screenshot:</p>
 									<p ng-switch="Platform">
-										<kbd ng-switch-when="darwin">Command + Shift + 1</kbd>
+										<kbd ng-switch-when="darwin">Command + Shift + 2</kbd>
 										<kbd ng-switch-when="win32">Ctrl + Shift + 1</kbd>
 									</p>
 								</div>
@@ -72,7 +72,7 @@
 								<div class="shortcut">
 									<p class="helper">Crop and upload a screenshot:</p>
 									<p ng-switch="Platform">
-										<kbd ng-switch-when="darwin">Command + Shift + 2</kbd>
+										<kbd ng-switch-when="darwin">Command + Shift + 4</kbd>
 										<kbd ng-switch-when="win32">Ctrl + Shift + 2</kbd>
 									</p>
 								</div>
