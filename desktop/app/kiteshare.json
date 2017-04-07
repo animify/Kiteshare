@@ -12,5 +12,6 @@
 	"enableNotifications": true,
 	"audioNotifications": true,
 	"lastVersionLaunched": "0",
+	"darwinCopy": false,
 	"recent" : []
 }

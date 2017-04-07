@@ -157,40 +157,35 @@ class Kiteshare {
 			}))
 		}
 
-		menu.append(new MenuItem({
-			label: 'Crop and Copy',
-			click: () => {
-				switch(this.platform) {
-					case 'darwin':
-						execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "$" using {command down, shift down}'])
-						break
-					case 'win32':
-						this.windowsCapture(true, true)
-						break
+		if (this.platform == "win32") {
+			menu.append(new MenuItem({
+				label: 'Crop and Copy',
+				click: () => {
+					this.windowsCapture(true, true)
 				}
-			}
-		}))
+			}))
 
-		menu.append(new MenuItem({
-			label: 'Crop and Upload',
-			click: () => {
-				switch(this.platform) {
-					case 'darwin':
-						execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "$" using {command down, shift down}'])
-						break
-					case 'win32':
-						this.windowsCapture(true, false)
-						break
+			menu.append(new MenuItem({
+				label: 'Crop and Upload',
+				click: () => {
+					this.windowsCapture(true, false)
 				}
-			}
-		}))
+			}))
+		} else if (this.platform == "darwin") {
+			menu.append(new MenuItem({
+				label: 'Cropped screenshot',
+				click: () => {
+					this.macCapture(true, false)
+				}
+			}))
+		}
 
 		menu.append(new MenuItem({
 			label: 'Upload full screen capture',
 			click: () => {
 				switch(this.platform) {
 					case 'darwin':
-						execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "#" using {command down, shift down}'])
+						this.macCapture(false, false)
 						break
 					case 'win32':
 						this.windowsCapture(false, false)
@@ -256,13 +251,25 @@ class Kiteshare {
 					})
 				}
 				checker()
+				globalShortcut.register("Cmd+Shift+2", () => this.macCapture(true, true))
 				break
 			case 'win32':
-				globalShortcut.register("CmdOrCtrl+Shift+1", () => this.windowsCapture(true, true))
-				globalShortcut.register("CmdOrCtrl+Shift+2", () => this.windowsCapture(true, false))
-				globalShortcut.register("CmdOrCtrl+Shift+3", () => this.windowsCapture())
+				globalShortcut.register("Ctrl+Shift+1", () => this.windowsCapture(true, true))
+				globalShortcut.register("Ctrl+Shift+2", () => this.windowsCapture(true, false))
+				globalShortcut.register("Ctrl+Shift+3", () => this.windowsCapture())
 				break
 		}
+	}
+
+	macCapture(crop=false, copy=false) {
+		if (this.platform !== 'darwin') return
+
+		if (crop) {
+			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "#" using {command down, shift down}'])
+		} else {
+			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "$" using {command down, shift down}'])
+		}
+
 	}
 
 	windowsCapture(crop=false, copy=false) {
