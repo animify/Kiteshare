@@ -1,0 +1,16 @@
+{
+	"name": "squirrel-version-checker",
+	"version": "0.0.0",
+	"private": true,
+	"scripts": {
+		"start": "set PORT=80 NODE_ENV=development nodemon server.js",
+		"dev": "./node_modules/.bin/nodemon server.js"
+	},
+	"dependencies": {
+		"express": "^4.9.8",
+		"morgan": "^1.3.2"
+	},
+	"devDependencies": {
+		"nodemon": "^1.8.1"
+	}
+}
