@@ -1,6 +1,6 @@
 {
 	"name": "Kiteshare",
-	"version": "1.1.0",
+	"version": "1.1.4",
 	"scripts": {
 		"preinstall": "cd app && npm install",
 		"start": "electron ./app",

@@ -1,9 +1,12 @@
-h3
-	font-weight 800
-	letter-spacing -.6px
+.logotype
+	margin-top .6rem
+	img
+		user-select none
+		pointer-events none
 	& + p
 		color text-light
 		font-size 1rem
+		margin-top .6rem
 
 h5
 	letter-spacing -.4px
@@ -127,7 +130,7 @@ input[type="checkbox"]
 					background-color lighten(background-dark, .7%)
 					border-radius 8px 0 0 8px
 					i
-						color #bea7f1
+						color #f7cd6d
 
 	.panes, .grid-row
 		height 100%
@@ -173,6 +176,11 @@ input[type="checkbox"]
 		padding 0
 	.option
 		padding-left 2rem
+		.text-reset
+			color #fff
+			font-weight 700
+			&:hover
+				text-decoration underline
 	.helper
 		color text-help
 	.info p
@@ -213,8 +221,7 @@ input[type="checkbox"]
 			color color-primary
 			font-weight 700
 			font-size 1rem
-			margin-left .4rem
-			margin-top .4rem
+			margin-top .6rem
 			letter-spacing -.3px
 
 .title
@@ -228,11 +235,6 @@ input[type="checkbox"]
 		height auto
 		text-align center
 		padding .9rem 0
-		img
-			display inline-block
-			vertical-align top
-			margin-right .3rem
-			relative top -1px
 	&-drag
 		width calc(100% - 9rem)
 		padding 1.3rem 0

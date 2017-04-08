@@ -100,19 +100,19 @@ html {
   width: 100%;
 }
 body {
-  font: caption;
+  font-family: 'Muli', 'Open Sans', sans-serif;
   font-size: 13px;
   color: #fff;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #252833;
+  background-color: #2f3038;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 3px solid #2b303b;
+  border: 3px solid #36373f;
 }
 h1 {
   font-size: 3.8em;
@@ -134,15 +134,15 @@ h6 {
 }
 ::selection {
   color: #000;
-  background-color: #f7f6d6;
+  background-color: #fae4e6;
 }
 a {
-  color: #d9d034;
+  color: #e57980;
   text-decoration: none;
   cursor: pointer;
 }
 a:hover {
-  color: #e2dc67;
+  color: #eb9ba0;
 }
 p,
 a,
@@ -157,13 +157,13 @@ strong {
   font-weight: 700;
 }
 ::-webkit-scrollbar {
-  background-color: #262a34;
+  background-color: #303138;
   width: 6px;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:window-inactive,
 ::-webkit-scrollbar-thumb {
-  background-color: #323844;
+  background-color: #3d3e47;
   border-radius: 8px;
 }
 .xs-1,
@@ -1187,7 +1187,7 @@ strong {
   font-weight: 900;
 }
 .dropdown li:hover a {
-  color: #d9d034;
+  color: #e57980;
 }
 .dropdown li a {
   color: text-grey;
@@ -1433,17 +1433,17 @@ strong {
 }
 .button.primary {
   color: #fff;
-  background-color: #d9d034;
+  background-color: #e57980;
 }
 .button.primary.outlined {
-  color: #d9d034;
+  color: #e57980;
   background-color: transparent;
-  -webkit-box-shadow: inset 0px 0px 0px 1px #d9d034;
-  box-shadow: inset 0px 0px 0px 1px #d9d034;
+  -webkit-box-shadow: inset 0px 0px 0px 1px #e57980;
+  box-shadow: inset 0px 0px 0px 1px #e57980;
 }
 .button.primary:hover {
   color: #fff;
-  background-color: #d0c727;
+  background-color: #e0626a;
 }
 .button.labeled {
   padding: 0 1.4em 0 4em;
@@ -1747,7 +1747,7 @@ ol.ordered li[value]:before {
 }
 .input input:focus,
 .input textarea:focus {
-  border-color: #d9d034;
+  border-color: #e57980;
 }
 .input textarea {
   line-height: 1.2em;
@@ -1787,7 +1787,7 @@ ol.ordered li[value]:before {
   vertical-align: top;
 }
 .text-primary {
-  color: #d9d034;
+  color: #e57980;
 }
 .text-red {
   color: #ff4949;
@@ -1934,13 +1934,13 @@ ol.ordered li[value]:before {
   background-color: #000 !important;
 }
 .primary:not(.button) {
-  background-color: #d9d034 !important;
+  background-color: #e57980 !important;
 }
 .primary:not(.button).light {
-  background-color: #e1d95d !important;
+  background-color: #ea9499 !important;
 }
 .primary:not(.button).dark {
-  background-color: #b5ad22 !important;
+  background-color: #da3e48 !important;
 }
 .ash:not(.button) {
   background-color: #2f3133 !important;
@@ -2058,13 +2058,20 @@ p code {
 .message code {
   background-color: rgba(0,0,0,0.06);
 }
-h3 {
-  font-weight: 800;
-  letter-spacing: -0.6px;
+.logotype {
+  margin-top: 0.6rem;
 }
-h3 + p {
+.logotype img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
+.logotype + p {
   color: #999da8;
   font-size: 1rem;
+  margin-top: 0.6rem;
 }
 h5 {
   letter-spacing: -0.4px;
@@ -2083,7 +2090,7 @@ h5 + p {
   color: #676c79;
 }
 hr {
-  border-top: 2px solid #2b303b;
+  border-top: 2px solid #36373f;
   border-bottom: 0;
   border-right: 0;
   border-left: 0;
@@ -2108,7 +2115,7 @@ input[type="checkbox"] {
   position: relative;
   display: block;
   margin-top: 1.4rem;
-  border: 2px solid #2b303b;
+  border: 2px solid #36373f;
   overflow: hidden;
   *zoom: 1;
 }
@@ -2121,7 +2128,7 @@ input[type="checkbox"] {
   clear: both;
 }
 .upload:hover {
-  border-color: #d9d034;
+  border-color: #e57980;
 }
 .upload .gradient {
   position: absolute;
@@ -2163,10 +2170,10 @@ input[type="checkbox"] {
 .toggle span + span {
   padding-left: 0.8rem;
   padding-right: 0;
-  border-left: 1px solid #2b303b;
+  border-left: 1px solid #36373f;
 }
 .toggle span.selected {
-  color: #d9d034;
+  color: #e57980;
   font-weight: 900;
   text-decoration: underline;
 }
@@ -2228,24 +2235,24 @@ input[type="checkbox"] {
   color: #fff;
 }
 .options .nav li.active a {
-  border-color: #2b303b;
-  border-right: 2px solid #272b36;
+  border-color: #36373f;
+  border-right: 2px solid #31323a;
   color: #fff;
-  background-color: #272b36;
+  background-color: #31323a;
   border-radius: 8px 0 0 8px;
 }
 .options .nav li.active a i {
-  color: #bea7f1;
+  color: #f7cd6d;
 }
 .options .panes,
 .options .grid-row {
   height: 100%;
 }
 .options .panes {
-  border: 2px solid #2b303b;
+  border: 2px solid #36373f;
   padding: 2.2rem 2.6rem;
   overflow-y: auto;
-  background-color: #272b36;
+  background-color: #31323a;
   border-radius: 8px;
   overflow-x: hidden;
 }
@@ -2258,7 +2265,7 @@ input[type="checkbox"] {
   padding: 0.8rem 0;
 }
 .none p i {
-  color: #d9d034;
+  color: #e57980;
   font-size: 1.3rem;
   position: relative;
   top: 4px;
@@ -2301,6 +2308,13 @@ input[type="checkbox"] {
 .pane .option {
   padding-left: 2rem;
 }
+.pane .option .text-reset {
+  color: #fff;
+  font-weight: 700;
+}
+.pane .option .text-reset:hover {
+  text-decoration: underline;
+}
 .pane .helper {
   color: #dbdce0;
 }
@@ -2326,12 +2340,12 @@ input[type="checkbox"] {
   clear: both;
 }
 .pane .option-item + .option-item {
-  border-top: 1px solid #2b303b;
+  border-top: 1px solid #36373f;
 }
 .pane .shortcuts {
   padding: 1.7rem 3rem;
-  background-color: #262a34;
-  border: 2px solid #2b303b;
+  background-color: #303138;
+  border: 2px solid #36373f;
   display: block;
   width: 100%;
   max-width: 24rem;
@@ -2357,18 +2371,17 @@ input[type="checkbox"] {
 .pane .shortcut + .shortcut {
   margin-top: 0.8rem;
   padding-top: 0.8rem;
-  border-top: 1px solid #2b303b;
+  border-top: 1px solid #36373f;
 }
 .pane .shortcut > * {
   display: inline-block;
   vertical-align: top;
 }
 .pane .shortcut kbd {
-  color: #d9d034;
+  color: #e57980;
   font-weight: 700;
   font-size: 1rem;
-  margin-left: 0.4rem;
-  margin-top: 0.4rem;
+  margin-top: 0.6rem;
   letter-spacing: -0.3px;
 }
 .title {
@@ -2385,13 +2398,6 @@ input[type="checkbox"] {
   height: auto;
   text-align: center;
   padding: 0.9rem 0;
-}
-.title-bar img {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 0.3rem;
-  position: relative;
-  top: -1px;
 }
 .title-drag {
   width: calc(100% - 9rem);

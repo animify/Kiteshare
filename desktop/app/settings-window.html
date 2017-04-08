@@ -27,7 +27,6 @@
 			<a class="ac-close"><i class="material-icons">close</i></a>
 		</div>
 		<div class="title-bar">
-			<img src="img/icon.png" height="17"/>
 			<div class="title">Kiteshare <span ng-bind="appState"></span></div>
 			<div class="title-drag"></div>
 		</div>
@@ -56,8 +55,10 @@
 				<div class="xs-10 panes nogutter">
 					<div class="pane active" id="home">
 						<div class="container">
-							<h3>Kiteshare</h3>
-							<p>Instantly share screenshots via clipboard or Imgur.</p>
+							<div class="logotype">
+								<img src="img/typeface.png"/>
+							</div>
+							<p>Instantly share screenshots via your clipboard or Imgur.</p>
 							<small ng-bind="version"></small>
 
 							<div class="shortcuts">
@@ -185,17 +186,13 @@
 									<input type="checkbox" ng-model="settings.retinaResize">
 								</div>
 							</div>
-							<!-- <div class="option-item" ng-show="settings.randomizeFilenames === true">
-								<span>Random Name Length</span>
-								<input type="number" class="form-control" ng-model="settings.randomizeFilenamesLength" placeholder="Length">
-							</div> -->
 							<div class="option-item">
 								<div class="xs-7 info">
 									<p>Reset settings:</p>
-									<small class="help-block">Resetting your settings will result in setting defaults. Kiteshare will need to be restarted.</small>
+									<small class="help-block">Resetting your settings will result in setting defaults.<br/>Kiteshare will need to be restarted.</small>
 								</div>
 								<div class="xs-5 option">
-									<a href class="text-red" ng-click="resetAll()">Reset</a>
+									<a href class="text-reset" ng-click="resetAll()">Reset preferences</a>
 								</div>
 							</div>
 						</form>
