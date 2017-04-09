@@ -107,12 +107,12 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: #2f3038;
+  background-color: #30323a;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 3px solid #36373f;
+  border: 3px solid #393c44;
 }
 h1 {
   font-size: 3.8em;
@@ -134,15 +134,15 @@ h6 {
 }
 ::selection {
   color: #000;
-  background-color: #fae4e6;
+  background-color: #ffdbe2;
 }
 a {
-  color: #e57980;
+  color: #ff4a6d;
   text-decoration: none;
   cursor: pointer;
 }
 a:hover {
-  color: #eb9ba0;
+  color: #ff7792;
 }
 p,
 a,
@@ -157,13 +157,13 @@ strong {
   font-weight: 700;
 }
 ::-webkit-scrollbar {
-  background-color: #303138;
+  background-color: #34363e;
   width: 6px;
   border-radius: 8px;
 }
 ::-webkit-scrollbar-thumb:window-inactive,
 ::-webkit-scrollbar-thumb {
-  background-color: #3d3e47;
+  background-color: #40434c;
   border-radius: 8px;
 }
 .xs-1,
@@ -1187,7 +1187,7 @@ strong {
   font-weight: 900;
 }
 .dropdown li:hover a {
-  color: #e57980;
+  color: #ff4a6d;
 }
 .dropdown li a {
   color: text-grey;
@@ -1293,17 +1293,17 @@ strong {
 }
 .button.yellow {
   color: #fff;
-  background-color: #d9d034;
+  background-color: #fad848;
 }
 .button.yellow.outlined {
-  color: #d9d034;
+  color: #fad848;
   background-color: transparent;
-  -webkit-box-shadow: inset 0px 0px 0px 1px #d9d034;
-  box-shadow: inset 0px 0px 0px 1px #d9d034;
+  -webkit-box-shadow: inset 0px 0px 0px 1px #fad848;
+  box-shadow: inset 0px 0px 0px 1px #fad848;
 }
 .button.yellow:hover {
   color: #fff;
-  background-color: #d0c727;
+  background-color: #f9d32f;
 }
 .button.green {
   color: #fff;
@@ -1433,17 +1433,17 @@ strong {
 }
 .button.primary {
   color: #fff;
-  background-color: #e57980;
+  background-color: #ff4a6d;
 }
 .button.primary.outlined {
-  color: #e57980;
+  color: #ff4a6d;
   background-color: transparent;
-  -webkit-box-shadow: inset 0px 0px 0px 1px #e57980;
-  box-shadow: inset 0px 0px 0px 1px #e57980;
+  -webkit-box-shadow: inset 0px 0px 0px 1px #ff4a6d;
+  box-shadow: inset 0px 0px 0px 1px #ff4a6d;
 }
 .button.primary:hover {
   color: #fff;
-  background-color: #e0626a;
+  background-color: #ff3058;
 }
 .button.labeled {
   padding: 0 1.4em 0 4em;
@@ -1747,7 +1747,7 @@ ol.ordered li[value]:before {
 }
 .input input:focus,
 .input textarea:focus {
-  border-color: #e57980;
+  border-color: #ff4a6d;
 }
 .input textarea {
   line-height: 1.2em;
@@ -1787,7 +1787,7 @@ ol.ordered li[value]:before {
   vertical-align: top;
 }
 .text-primary {
-  color: #e57980;
+  color: #ff4a6d;
 }
 .text-red {
   color: #ff4949;
@@ -1796,7 +1796,7 @@ ol.ordered li[value]:before {
   color: #ff7c1d;
 }
 .text-yellow {
-  color: #d9d034;
+  color: #fad848;
 }
 .text-green {
   color: #13ce66;
@@ -1844,13 +1844,13 @@ ol.ordered li[value]:before {
   background-color: #e36000 !important;
 }
 .yellow:not(.button) {
-  background-color: #d9d034 !important;
+  background-color: #fad848 !important;
 }
 .yellow:not(.button).light {
-  background-color: #e1d95d !important;
+  background-color: #fbe06d !important;
 }
 .yellow:not(.button).dark {
-  background-color: #b5ad22 !important;
+  background-color: #f8cb09 !important;
 }
 .green:not(.button) {
   background-color: #13ce66 !important;
@@ -1934,13 +1934,13 @@ ol.ordered li[value]:before {
   background-color: #000 !important;
 }
 .primary:not(.button) {
-  background-color: #e57980 !important;
+  background-color: #ff4a6d !important;
 }
 .primary:not(.button).light {
-  background-color: #ea9499 !important;
+  background-color: #ff6e8a !important;
 }
 .primary:not(.button).dark {
-  background-color: #da3e48 !important;
+  background-color: #ff0838 !important;
 }
 .ash:not(.button) {
   background-color: #2f3133 !important;
@@ -2090,7 +2090,7 @@ h5 + p {
   color: #676c79;
 }
 hr {
-  border-top: 2px solid #36373f;
+  border-top: 2px solid #393c44;
   border-bottom: 0;
   border-right: 0;
   border-left: 0;
@@ -2115,7 +2115,7 @@ input[type="checkbox"] {
   position: relative;
   display: block;
   margin-top: 1.4rem;
-  border: 2px solid #36373f;
+  border: 2px solid #393c44;
   overflow: hidden;
   *zoom: 1;
 }
@@ -2128,7 +2128,7 @@ input[type="checkbox"] {
   clear: both;
 }
 .upload:hover {
-  border-color: #e57980;
+  border-color: #ff4a6d;
 }
 .upload .gradient {
   position: absolute;
@@ -2170,10 +2170,10 @@ input[type="checkbox"] {
 .toggle span + span {
   padding-left: 0.8rem;
   padding-right: 0;
-  border-left: 1px solid #36373f;
+  border-left: 1px solid #393c44;
 }
 .toggle span.selected {
-  color: #e57980;
+  color: #ff4a6d;
   font-weight: 900;
   text-decoration: underline;
 }
@@ -2235,10 +2235,10 @@ input[type="checkbox"] {
   color: #fff;
 }
 .options .nav li.active a {
-  border-color: #36373f;
-  border-right: 2px solid #31323a;
+  border-color: #393c44;
+  border-right: 2px solid #353740;
   color: #fff;
-  background-color: #31323a;
+  background-color: #353740;
   border-radius: 8px 0 0 8px;
 }
 .options .nav li.active a i {
@@ -2249,10 +2249,10 @@ input[type="checkbox"] {
   height: 100%;
 }
 .options .panes {
-  border: 2px solid #36373f;
+  border: 2px solid #393c44;
   padding: 2.2rem 2.6rem;
   overflow-y: auto;
-  background-color: #31323a;
+  background-color: #353740;
   border-radius: 8px;
   overflow-x: hidden;
 }
@@ -2265,7 +2265,7 @@ input[type="checkbox"] {
   padding: 0.8rem 0;
 }
 .none p i {
-  color: #e57980;
+  color: #ff4a6d;
   font-size: 1.3rem;
   position: relative;
   top: 4px;
@@ -2340,12 +2340,12 @@ input[type="checkbox"] {
   clear: both;
 }
 .pane .option-item + .option-item {
-  border-top: 1px solid #36373f;
+  border-top: 1px solid #393c44;
 }
 .pane .shortcuts {
   padding: 1.7rem 3rem;
-  background-color: #303138;
-  border: 2px solid #36373f;
+  background-color: #34363e;
+  border: 2px solid #393c44;
   display: block;
   width: 100%;
   max-width: 24rem;
@@ -2371,14 +2371,14 @@ input[type="checkbox"] {
 .pane .shortcut + .shortcut {
   margin-top: 0.8rem;
   padding-top: 0.8rem;
-  border-top: 1px solid #36373f;
+  border-top: 1px solid #393c44;
 }
 .pane .shortcut > * {
   display: inline-block;
   vertical-align: top;
 }
 .pane .shortcut kbd {
-  color: #e57980;
+  color: #fad848;
   font-weight: 700;
   font-size: 1rem;
   margin-top: 0.6rem;
