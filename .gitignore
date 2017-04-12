@@ -1,5 +1,9 @@
 desktop/app/node_modules
 desktop/node_modules
-desktop/dist
+desktop/dist/win
+desktop/dist/win-unpacked
+desktop/dist/darwin
 
 web/node_modules
+web/dist
+web/server/node_modules

@@ -1,12 +1,12 @@
 {
 	"name": "Kiteshare",
 	"productName": "Kiteshare",
-	"description": "A rapid, cross-platform screenshot sharing tool",
+	"description": "Screen capture and share your shots instantaneously straight from your clipboard or a simple Imgur link",
 	"author": {
 		"name": "Cindr.io",
 		"url": "https://cindr.io"
 	},
-	"version": "1.1.4",
+	"version": "1.1.5",
 	"main": "js/main.js",
 	"dependencies": {
 		"async": "^2.0.1",

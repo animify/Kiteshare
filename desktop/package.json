@@ -1,6 +1,9 @@
 {
 	"name": "Kiteshare",
-	"version": "1.1.4",
+	"version": "1.1.5",
+	"author": "Cindr.io (https://cindr.io)",
+	"repository": "https://github.com/Aotik/Kiteshare",
+	"license": "MIT",
 	"scripts": {
 		"preinstall": "cd app && npm install",
 		"start": "electron ./app",

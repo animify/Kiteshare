@@ -1,5 +1,5 @@
 .logotype
-	margin-top .6rem
+	margin-top .8rem
 	img
 		user-select none
 		pointer-events none
@@ -28,7 +28,7 @@ hr
 	border-bottom 0
 	border-right 0
 	border-left 0
-	margin 1.4rem 0 1rem
+	margin 1.4rem 0 0 0
 	outline 0
 	background-color transparent
 	box-shadow none
@@ -40,7 +40,6 @@ input[type="checkbox"]
 	margin-top -1.4rem
 .upload
 	height 5rem
-	border-radius 8px
 	background-size cover
 	position relative
 	display block
@@ -60,6 +59,8 @@ input[type="checkbox"]
 			absolute bottom .7rem left 1rem
 
 .toggle
+	float right
+	padding-top .6rem
 	span
 		padding-right .8rem
 		color text-light
@@ -84,7 +85,7 @@ input[type="checkbox"]
 			text-decoration underline
 
 .options
-	padding 3.5rem 2rem 1.8rem 2rem
+	padding 3rem 2rem 1.2rem 2rem
 	height 100%
 	.nav
 		position relative
@@ -107,7 +108,7 @@ input[type="checkbox"]
 						color text-help
 						font-weight 500
 			& > a
-				padding 1rem 1.4rem 1rem 3rem
+				padding 1rem 1.4rem 1rem 3.1rem
 				color text-help
 				display block
 				border 2px solid transparent
@@ -118,7 +119,7 @@ input[type="checkbox"]
 				i
 					color text-light-icon
 					font-size 1.2rem
-					absolute top 1.05rem left 1.04rem
+					absolute top 1.14rem left 1.1rem
 			&:hover
 				a
 					color text-dark
@@ -128,9 +129,8 @@ input[type="checkbox"]
 					border-right 2px solid lighten(background-dark, .7%)
 					color text-dark
 					background-color lighten(background-dark, .7%)
-					border-radius 8px 0 0 8px
 					i
-						color #f7cd6d
+						color #ff4a6d
 
 	.panes, .grid-row
 		height 100%
@@ -138,8 +138,6 @@ input[type="checkbox"]
 		border 2px solid background-dark-border
 		padding 2.2rem 2.6rem
 		overflow-y auto
-		background-color lighten(background-dark, .7%)
-		border-radius 8px
 		overflow-x hidden
 
 .none
@@ -179,12 +177,16 @@ input[type="checkbox"]
 		.text-reset
 			color #fff
 			font-weight 700
+			float right
+			text-decoration underline !important
+			opacity .6
+			padding-top .6rem
 			&:hover
-				text-decoration underline
+				opacity 1
 	.helper
 		color text-help
 	.info p
-		color text-help
+		color #fff
 		font-weight 700
 	.help-block
 		color text-light
@@ -203,7 +205,6 @@ input[type="checkbox"]
 		width 100%
 		max-width 24rem
 		margin 2rem auto 1rem auto
-		border-radius 8px
 		overflow hidden
 		cf()
 	.shortcut
@@ -218,11 +219,14 @@ input[type="checkbox"]
 			display inline-block
 			vertical-align top
 		kbd
-			color color-yellow
+			color #fff
 			font-weight 700
-			font-size 1rem
-			margin-top .6rem
+			font-size 1.1rem
+			margin-top .2rem
+			display block
 			letter-spacing -.3px
+			background-color background-dark-border
+			padding .2rem .6rem
 
 .title
 	font-size .86rem

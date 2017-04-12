@@ -1,0 +1,91 @@
+.version
+	font-size 1rem
+	display block
+	color #818496
+	font-weight 500
+	margin-top 1rem
+	fixed bottom right
+	padding 2rem
+	span
+		color #fff
+.hero
+	text-align center
+	display flex
+	align-items center
+	justify-content center
+	height 100%
+	width 100%
+	small
+		font-size .86rem
+		display block
+		color #272935
+		font-weight 500
+		margin-top 1.7rem
+	&--content
+		padding 3rem
+		max-width 70%
+		.logo
+			display block
+			margin-bottom 1.4rem
+			img
+				pointer-events none
+				user-select none
+		h4
+			color text-light
+			max-width 60%
+			display block
+			margin 0 auto
+			font-weight 300
+		+below('m')
+			max-width 100%
+			h4
+				max-width 100%
+
+.downloads
+	display block
+	margin-top 2rem
+.button
+	height auto
+	text-align left
+	font-size .86rem
+	background-color #171925
+	border-radius 4px
+	position relative
+	padding .8rem 1.3rem .8rem 6rem
+	color #818496
+	font-weight 500
+	& + .button
+		margin-left 2rem
+	+below('m')
+		& + .button
+			margin-left 0
+			margin-top 1.4rem
+	.icon
+		absolute top left
+		background-color #1f2233
+		height 100%
+		width 4.4rem
+		text-align center
+		display flex
+		align-items center
+		justify-content center
+		box-shadow inset 0 -2px 0 rgba(72,72,79,.5)
+		i
+			font-size 2.3rem
+			color #4e5161
+			max-width 100%
+			transition all 0.2s ease
+	&.download
+		span
+			display block
+			margin-top .24rem
+			color #fff
+			font-size 1.8rem
+			font-weight 700
+		&:hover
+			background-color #171925
+			color #818496
+			.icon
+				box-shadow inset 0 -2px 0 rgba(72,72,79,9)
+			i
+				color #fff
