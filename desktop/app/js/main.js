@@ -266,9 +266,9 @@ class Kiteshare {
 		if (this.platform !== 'darwin') return
 
 		if (crop) {
-			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "#" using {command down, shift down}'])
-		} else {
 			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "$" using {command down, shift down}'])
+		} else {
+			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "#" using {command down, shift down}'])
 		}
 
 	}

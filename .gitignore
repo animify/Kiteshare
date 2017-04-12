@@ -2,6 +2,7 @@ desktop/app/node_modules
 desktop/node_modules
 desktop/dist/win
 desktop/dist/win-unpacked
+desktop/dist/mac
 desktop/dist/darwin
 
 web/node_modules
