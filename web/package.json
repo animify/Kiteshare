@@ -1,7 +1,7 @@
 {
 	"name": "kiteshare-web",
 	"description": "Website for Kiteshare.io",
-	"version": "1.0.0",
+	"version": "1.1.6",
 	"main": "gulpfile.js",
 	"scripts": {
 		"start": "gulp dev"

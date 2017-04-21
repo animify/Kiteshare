@@ -6,7 +6,7 @@
 		"name": "Cindr.io",
 		"url": "https://cindr.io"
 	},
-	"version": "1.1.5",
+	"version": "1.1.6",
 	"main": "js/main.js",
 	"dependencies": {
 		"async": "^2.0.1",
