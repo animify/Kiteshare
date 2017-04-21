@@ -44,6 +44,7 @@ class Kiteshare {
 		this.name = app.getName()
 		this.version = app.getVersion()
 		this.appState = "Beta"
+		this.macCopy = false
 		this.recent = []
 
 		this.settingsWindow = null
@@ -174,7 +175,13 @@ class Kiteshare {
 			}))
 		} else if (this.platform == "darwin") {
 			menu.append(new MenuItem({
-				label: 'Cropped screenshot',
+				label: 'Crop and Copy',
+				click: () => {
+					this.macCapture(true, true)
+				}
+			}))
+			menu.append(new MenuItem({
+				label: 'Crop and Upload',
 				click: () => {
 					this.macCapture(true, false)
 				}
@@ -239,9 +246,15 @@ class Kiteshare {
 								execFile('/usr/bin/mdls', ['--raw', '--name', 'kMDItemIsScreenCapture', filePath], (error, stdout) => {
 									if (error || !parseInt(stdout)) return callback()
 
-									this.upload(this.moveToTemp(filePath), filePath)
+
+									if (this.macCopy) {
+										this.copyImageToClipboard(filePath)
+									} else {
+										this.upload(this.moveToTemp(filePath), filePath)
+									}
 
 									checkedFiles.push(file)
+									this.macCopy = false
 									callback()
 								})
 							},
@@ -264,6 +277,7 @@ class Kiteshare {
 
 	macCapture(crop=false, copy=false) {
 		if (this.platform !== 'darwin') return
+		if (copy) this.macCopy = true
 
 		if (crop) {
 			execFile('/usr/bin/osascript', ['-e', 'tell application "System Events" to keystroke "$" using {command down, shift down}'])
@@ -317,12 +331,7 @@ class Kiteshare {
 				this.cropWindow = null
 
 				if (copy) {
-					const clipboardImage = NativeImage.createFromPath(imagePath)
-					clipboard.writeImage(clipboardImage)
-					if (this.settings.get('audioNotifications')) {
-						this.workerWindow.webContents.send('audio-notify', 'fire')
-					}
-					this.notify('Cropped image copied to your clipboard')
+					this.copyImageToClipboard(imagePath)
 				} else {
 					this.upload(this.moveToTemp(imagePath), imagePath)
 				}
@@ -451,6 +460,15 @@ class Kiteshare {
 	copyToClipboard(url) {
 		clipboard.writeText(url)
 		this.notify('Screenshot link has been copied to your clipboard', url)
+	}
+
+	copyImageToClipboard(imagePath) {
+		const clipboardImage = NativeImage.createFromPath(imagePath)
+		clipboard.writeImage(clipboardImage)
+		if (this.settings.get('audioNotifications')) {
+			this.workerWindow.webContents.send('audio-notify', 'fire')
+		}
+		this.notify('Cropped image copied to your clipboard')
 	}
 }
 
