@@ -25,8 +25,6 @@ $(() => {
 		cropWindow.focus()
 	})
 
-	$(document).keyup(e => e.keyCode == 27 && cropWindow.destroy())
-
 	let dragging = false
 	let mouseLoc = {x: 0, y: 0}
 	let dragStart = {x: 0, y: 0}
@@ -91,6 +89,18 @@ $(() => {
 		$(".overlayer").css('clip', `rect(${clip.y}px,${clip.x}px,${clip.y}px,${clip.x}px)`)
 
 		$('.overlayer').show()
+	})
+
+
+	$(document).keyup(e => {
+		if (e.keyCode == 27) {
+			if (dragging) {
+				dragging = false
+				$('.overlayer').hide()
+			} else {
+				cropWindow.destroy()
+			}
+		}
 	})
 
 	$(window).on('mouseup', e => {

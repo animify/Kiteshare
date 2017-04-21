@@ -2065,6 +2065,7 @@ p code {
   -ms-user-select: none;
   user-select: none;
   pointer-events: none;
+  height: 44px;
 }
 .logotype + p {
   color: #a2a1b3;
@@ -2355,7 +2356,7 @@ input[type="checkbox"] {
   display: block;
   width: 100%;
   max-width: 24rem;
-  margin: 2rem auto 1rem auto;
+  margin: 1.6rem auto 1rem auto;
   overflow: hidden;
   *zoom: 1;
 }

@@ -3589,7 +3589,7 @@ p code {
 .hero small {
   font-size: 0.86rem;
   display: block;
-  color: #272935;
+  color: #333644;
   font-weight: 500;
   margin-top: 1.7rem;
 }
@@ -3599,7 +3599,7 @@ p code {
 }
 .hero--content .logo {
   display: block;
-  margin-bottom: 1.4rem;
+  margin-bottom: 1.7rem;
 }
 .hero--content .logo img {
   pointer-events: none;
@@ -3607,6 +3607,7 @@ p code {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  height: 86px;
 }
 .hero--content h4 {
   color: #a2a1b3;
